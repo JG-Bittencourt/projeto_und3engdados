@@ -18,8 +18,8 @@ Este repositório unificado contém a implementação das **Fases 1 e 2** do Tra
 
 ```text
 /
-├── parte1_sql/            # Código-fonte do CRUD em PostgreSQL
-├── parte2_nosql/          # Código-fonte do CRUD em MongoDB e mapeamento
+├── crudnosql/             # Código-fonte do CRUD em PostgreSQL
+├── crudsql/               # Código-fonte do CRUD em MongoDB 
 └── README.md              # Documentação geral
 ```
 
