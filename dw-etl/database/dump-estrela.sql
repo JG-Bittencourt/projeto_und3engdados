@@ -6,8 +6,7 @@
 
 CREATE TABLE dim_departamento (
     sk_departamento SERIAL PRIMARY KEY,          -- Chave substituta (Data Warehouse)
-    nk_codigo_departamento VARCHAR(50),          -- Chave original do CSV/Database
-    sigla VARCHAR(20),
+    sigla VARCHAR(20),                           -- Chave original do CSV/Database
     nome VARCHAR(255) NOT NULL
 );
 
@@ -15,8 +14,7 @@ CREATE TABLE dim_departamento (
 
 CREATE TABLE dim_professor (
     sk_professor SERIAL PRIMARY KEY,             -- Chave substituta (Data Warehouse)
-    nk_id_professor VARCHAR(50),                 -- Chave original do CSV/Database
-    nome VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,                 -- Chave original do CSV/Database
     tipo_jornada_trabalho VARCHAR(100),
     formacao VARCHAR(100),
     departamento_lotacao VARCHAR(255)            -- Texto com o nome do departamento 
