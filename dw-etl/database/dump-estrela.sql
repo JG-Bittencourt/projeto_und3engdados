@@ -14,6 +14,7 @@ CREATE TABLE dim_departamento (
 
 CREATE TABLE dim_professor (
     sk_professor SERIAL PRIMARY KEY,             -- Chave substituta (Data Warehouse)
+    nk_professor VARCHAR(50),
     nome VARCHAR(255) NOT NULL,                 -- Chave original do CSV/Database
     tipo_jornada_trabalho VARCHAR(100),
     formacao VARCHAR(100),
@@ -56,12 +57,13 @@ CREATE TABLE fato_turmas (
     -- Chaves Estrangeiras apontando para as Dimensões
     sk_professor INTEGER NOT NULL,
     sk_disciplina INTEGER NOT NULL,
-    sk_departamento INTEGER NOT NULL,
     sk_semestre INTEGER NOT NULL,
     
     -- Chave natural para rastreio (código da turma no CSV/Database)
     nk_id_turma VARCHAR(50),
-    
+    departamento_responsavel VARCHAR(255),    
+
+
     -- Métricas / Fatos 
     qtd_discentes_matriculados INTEGER,
     media_notas NUMERIC(5,2),                    -- Usando NUMERIC para notas (ex: 8.75)
@@ -71,8 +73,7 @@ CREATE TABLE fato_turmas (
     -- Restrições 
     CONSTRAINT fk_fato_professor FOREIGN KEY (sk_professor) REFERENCES dim_professor (sk_professor),
     CONSTRAINT fk_fato_disciplina FOREIGN KEY (sk_disciplina) REFERENCES dim_disciplina (sk_disciplina),
-    CONSTRAINT fk_fato_departamento FOREIGN KEY (sk_departamento) REFERENCES dim_departamento (sk_departamento),
     CONSTRAINT fk_fato_semestre FOREIGN KEY (sk_semestre) REFERENCES dim_semestre (sk_semestre)
 );
 
-
+    

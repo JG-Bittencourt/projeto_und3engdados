@@ -43,7 +43,7 @@
         <precision>-2</precision>
       </field>
       <field>
-        <name>nk_id_professor</name>
+        <name>nk_professor</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -112,14 +112,14 @@
   </transform>
   <transform>
     <type>TableInput</type>
-    <name>Get Departamentos DB</name>
+    <name>Get Turmas DB</name>
     <sql>SELECT 
    
     t.id_turma AS nk_id_turma,
     t.cod_disc AS nk_codigo_disciplina,
     t.ano,
     t.semestre AS periodo,
-    l.mat_professor AS nk_id_professor,
+    l.mat_professor AS nk_professor,
     
     
     u.nome AS nome_professor,
@@ -215,149 +215,28 @@ GROUP BY
         <stream_name>qtd_reprovados</stream_name>
         <column_name>qtd_reprovados</column_name>
       </field>
-    </fields>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-    <GUI>
-      <xloc>1488</xloc>
-      <yloc>464</yloc>
-    </GUI>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-  </transform>
-  <transform>
-    <type>Unique</type>
-    <name>Unique rows</name>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <fields>
       <field>
-        <name>ano</name>
-        <case_insensitive>N</case_insensitive>
+        <stream_name>sk_disciplina</stream_name>
+        <column_name>sk_disciplina</column_name>
       </field>
       <field>
-        <name>periodo</name>
-        <case_insensitive>N</case_insensitive>
+        <stream_name>sk_professor</stream_name>
+        <column_name>sk_professor</column_name>
       </field>
       <field>
-        <name>nome_professor</name>
-        <case_insensitive>N</case_insensitive>
+        <stream_name>sk_semestre</stream_name>
+        <column_name>sk_semestre</column_name>
+      </field>
+      <field>
+        <stream_name>departamento_responsavel</stream_name>
+        <column_name>departamento_responsavel</column_name>
       </field>
     </fields>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
       <xloc>1312</xloc>
-      <yloc>528</yloc>
-    </GUI>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-  </transform>
-  <transform>
-    <type>SortRows</type>
-    <name>Sort rows</name>
-    <fields>
-      <field>
-        <name>nk_id_turma</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nk_codigo_disciplina</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>ano</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>periodo</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nk_id_professor</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nome_professor</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>qtd_discentes_matriculados</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>media_notas</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>qtd_aprovados</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>qtd_reprovados</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <directory>${java.io.tmpdir}</directory>
-    <sort_prefix>out</sort_prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <unique_rows>N</unique_rows>
-    <compress>N</compress>
-    <compress_variables/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-    <GUI>
-      <xloc>720</xloc>
-      <yloc>512</yloc>
+      <yloc>480</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -657,7 +536,7 @@ GROUP BY
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>96</xloc>
+      <xloc>80</xloc>
       <yloc>256</yloc>
     </GUI>
     <partitioning>
@@ -1344,8 +1223,8 @@ GROUP BY
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>112</yloc>
+      <xloc>64</xloc>
+      <yloc>128</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -2079,8 +1958,8 @@ GROUP BY
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>272</yloc>
+      <xloc>352</xloc>
+      <yloc>288</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -2092,30 +1971,6 @@ GROUP BY
     <type>Constant</type>
     <name>Add constants</name>
     <fields>
-      <field>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <name>nk_id_turma</name>
-        <type>String</type>
-        <format/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <name>nk_id_professor</name>
-        <type>String</type>
-        <format/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
       <field>
         <currency/>
         <decimal/>
@@ -2152,12 +2007,24 @@ GROUP BY
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
+      <field>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <name>nk_id_turma</name>
+        <type>Integer</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
       <xloc>496</xloc>
-      <yloc>384</yloc>
+      <yloc>272</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -2223,8 +2090,8 @@ GROUP BY
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>544</yloc>
+      <xloc>912</xloc>
+      <yloc>560</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -2243,21 +2110,21 @@ GROUP BY
       <schema>public</schema>
       <table>dim_professor</table>
       <key>
-        <name>nome_professor</name>
+        <name>nk_professor</name>
         <name2/>
-        <condition/>
-        <field>nome</field>
+        <condition>=</condition>
+        <field>nk_professor</field>
       </key>
       <value>
-        <name>sk_disciplina</name>
-        <rename>sk_disciplina</rename>
+        <name>sk_professor</name>
+        <rename>sk_professor</rename>
         <default/>
         <type>Integer</type>
         <trim_type>none</trim_type>
       </value>
       <value>
-        <name>nk_codigo_disciplina</name>
-        <rename>nk_codigo_disciplina</rename>
+        <name>nk_professor</name>
+        <rename>nk_professor</rename>
         <default/>
         <type>String</type>
         <trim_type>none</trim_type>
@@ -2270,15 +2137,81 @@ GROUP BY
         <trim_type>none</trim_type>
       </value>
       <value>
-        <name>departamento_responsavel</name>
-        <rename>departamento_responsavel</rename>
+        <name>tipo_jornada_trabalho</name>
+        <rename>tipo_jornada_trabalho</rename>
         <default/>
         <type>String</type>
         <trim_type>none</trim_type>
       </value>
       <value>
-        <name>cr_total</name>
-        <rename>cr_total</rename>
+        <name>formacao</name>
+        <rename>formacao</rename>
+        <default/>
+        <type>String</type>
+        <trim_type>none</trim_type>
+      </value>
+      <value>
+        <name>departamento_lotacao</name>
+        <rename>departamento_lotacao</rename>
+        <default/>
+        <type>String</type>
+        <trim_type>none</trim_type>
+      </value>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+    </lookup>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>528</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>DBLookup</type>
+    <name>Database lookup 2</name>
+    <connection>db_estrela</connection>
+    <cache>N</cache>
+    <cache_size>0</cache_size>
+    <cache_load_all>N</cache_load_all>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_semestre</table>
+      <key>
+        <name>ano</name>
+        <name2/>
+        <condition>=</condition>
+        <field>ano</field>
+      </key>
+      <key>
+        <name>periodo</name>
+        <name2/>
+        <condition>=</condition>
+        <field>periodo</field>
+      </key>
+      <value>
+        <name>sk_semestre</name>
+        <rename>sk_semestre</rename>
+        <default/>
+        <type>Integer</type>
+        <trim_type>none</trim_type>
+      </value>
+      <value>
+        <name>ano</name>
+        <rename>ano</rename>
+        <default/>
+        <type>Integer</type>
+        <trim_type>none</trim_type>
+      </value>
+      <value>
+        <name>periodo</name>
+        <rename>periodo</rename>
         <default/>
         <type>Integer</type>
         <trim_type>none</trim_type>
@@ -2290,7 +2223,7 @@ GROUP BY
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>1056</xloc>
+      <xloc>720</xloc>
       <yloc>544</yloc>
     </GUI>
     <partitioning>
@@ -2301,30 +2234,30 @@ GROUP BY
   </transform>
   <transform>
     <type>DBLookup</type>
-    <name>Database lookup 4</name>
+    <name>Database lookup 2 2</name>
     <connection>db_estrela</connection>
     <cache>N</cache>
     <cache_size>0</cache_size>
     <cache_load_all>N</cache_load_all>
     <lookup>
       <schema>public</schema>
-      <table>dim_departamento</table>
+      <table>dim_professor</table>
       <key>
-        <name>departamento_responsavel</name>
+        <name>nome_professor</name>
         <name2/>
-        <condition/>
-        <field>sigla</field>
+        <condition>=</condition>
+        <field>nome</field>
       </key>
       <value>
-        <name>sk_disciplina</name>
-        <rename>sk_disciplina</rename>
+        <name>sk_professor</name>
+        <rename>sk_professor</rename>
         <default/>
         <type>Integer</type>
         <trim_type>none</trim_type>
       </value>
       <value>
-        <name>nk_codigo_disciplina</name>
-        <rename>nk_codigo_disciplina</rename>
+        <name>nk_professor</name>
+        <rename>nk_professor</rename>
         <default/>
         <type>String</type>
         <trim_type>none</trim_type>
@@ -2337,17 +2270,24 @@ GROUP BY
         <trim_type>none</trim_type>
       </value>
       <value>
-        <name>departamento_responsavel</name>
-        <rename>departamento_responsavel</rename>
+        <name>tipo_jornada_trabalho</name>
+        <rename>tipo_jornada_trabalho</rename>
         <default/>
         <type>String</type>
         <trim_type>none</trim_type>
       </value>
       <value>
-        <name>cr_total</name>
-        <rename>cr_total</rename>
+        <name>formacao</name>
+        <rename>formacao</rename>
         <default/>
-        <type>Integer</type>
+        <type>String</type>
+        <trim_type>none</trim_type>
+      </value>
+      <value>
+        <name>departamento_lotacao</name>
+        <rename>departamento_lotacao</rename>
+        <default/>
+        <type>String</type>
         <trim_type>none</trim_type>
       </value>
       <orderby/>
@@ -2357,8 +2297,8 @@ GROUP BY
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>1184</xloc>
-      <yloc>528</yloc>
+      <xloc>592</xloc>
+      <yloc>416</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -2373,18 +2313,43 @@ GROUP BY
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get Departamentos DB</from>
+      <from>Get Turmas DB</from>
       <to>Renomeia Colunas DB</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique rows</from>
-      <to>Table output</to>
+      <from>2025</from>
+      <to>Delete Colunas CSV</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Delete Colunas CSV</from>
+      <to>Rename</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rename</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup</from>
+      <to>Database lookup 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Dummy (do nothing)</from>
-      <to>Sort rows</to>
+      <to>Database lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup 2</from>
+      <to>Database lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Database lookup 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -2394,11 +2359,6 @@ GROUP BY
     </hop>
     <hop>
       <from>2020</from>
-      <to>Delete Colunas CSV</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>2025</from>
       <to>Delete Colunas CSV</to>
       <enabled>Y</enabled>
     </hop>
@@ -2423,38 +2383,13 @@ GROUP BY
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Delete Colunas CSV</from>
-      <to>Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Rename</from>
-      <to>Add constants</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Database lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Database lookup 3</from>
-      <to>Database lookup 4</to>
+      <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Database lookup 4</from>
-      <to>Unique rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Database lookup</from>
-      <to>Database lookup 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add constants</from>
-      <to>Dummy (do nothing)</to>
+      <from>Database lookup 2 2</from>
+      <to>Database lookup 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>

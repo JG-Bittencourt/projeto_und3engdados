@@ -149,6 +149,12 @@
     <name>Renomeia Colunas DB</name>
     <fields>
       <field>
+        <name>mat_professor</name>
+        <rename>nk_professor</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
         <name>nome</name>
         <rename/>
         <length>-2</length>
@@ -190,7 +196,7 @@
     <type>TableInput</type>
     <name>Get Professor DB</name>
     <sql>WITH professor AS (SELECT * FROM universidade.professor p JOIN universidade.usuario u USING (cpf))
-SELECT nome, tipo_jornada_trabalho, formacao,departamento FROM professor</sql>
+SELECT nome, tipo_jornada_trabalho, formacao,departamento, mat_professor FROM professor</sql>
     <limit>0</limit>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
@@ -323,9 +329,6 @@ SELECT nome, tipo_jornada_trabalho, formacao,departamento FROM professor</sql>
     <fields>
       <select_unspecified>N</select_unspecified>
       <remove>
-        <name>siape</name>
-      </remove>
-      <remove>
         <name>vinculo</name>
       </remove>
       <remove>
@@ -369,6 +372,12 @@ SELECT nome, tipo_jornada_trabalho, formacao,departamento FROM professor</sql>
     <type>SelectValues</type>
     <name>Renomeia Colunas CSV</name>
     <fields>
+      <field>
+        <name>siape</name>
+        <rename>nk_professor</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
       <field>
         <name>nome</name>
         <rename/>
